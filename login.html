@@ -4,39 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind dark mode setup
+        tailwind.config = { darkMode: 'class' }
+        
+        // Preference check taake dark mode foran apply ho
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <title>Login | FoodiePro</title>
-    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: background-color 0.3s ease; }
+    </style>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+<body class="bg-[#F8FAFC] dark:bg-slate-900 flex items-center justify-center min-h-screen p-4 transition-colors duration-300">
 
-    <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl w-full max-w-md border border-gray-100 transition-all">
+    <div class="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-[2.5rem] shadow-xl w-full max-w-md border border-gray-100 dark:border-slate-700 transition-all">
+        
         <div class="text-center mb-8">
-            <h2 class="text-4xl font-black text-gray-900 tracking-tight">Welcome <span class="text-orange-500">Back</span></h2>
-            <p class="text-gray-500 mt-2 font-medium">Login to your account</p>
+            <h2 class="text-4xl font-black text-gray-900 dark:text-white tracking-tight">
+                Welcome <span class="text-orange-500">Back</span>
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 mt-2 font-medium">Login to your account</p>
         </div>
 
         <div class="space-y-4">
-            <input type="email" id="login-email" placeholder="Email Address" class="w-full p-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 transition">
-            <input type="password" id="login-pass" placeholder="Password" class="w-full p-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 transition">
+            <input type="email" id="login-email" placeholder="Email Address" 
+                class="w-full p-4 bg-gray-50 dark:bg-slate-900/50 border-none dark:text-white rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 transition placeholder:dark:text-gray-500">
             
-            <button id="login-btn" class="w-full bg-gray-900 text-white p-4 rounded-2xl font-bold hover:bg-orange-500 transition-all shadow-lg">
+            <input type="password" id="login-pass" placeholder="Password" 
+                class="w-full p-4 bg-gray-50 dark:bg-slate-900/50 border-none dark:text-white rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 transition placeholder:dark:text-gray-500">
+            
+            <button id="login-btn" class="w-full bg-gray-900 dark:bg-orange-500 text-white p-4 rounded-2xl font-bold hover:bg-orange-600 dark:hover:bg-orange-600 transition-all shadow-lg active:scale-[0.98]">
                 Login Securely
             </button>
         </div>
 
         <div class="flex items-center my-6">
-            <hr class="flex-grow border-gray-200">
-            <span class="px-3 text-gray-400 text-xs font-bold uppercase">Or</span>
-            <hr class="flex-grow border-gray-200">
+            <hr class="flex-grow border-gray-200 dark:border-slate-700">
+            <span class="px-3 text-gray-400 dark:text-gray-600 text-xs font-bold uppercase">Or</span>
+            <hr class="flex-grow border-gray-200 dark:border-slate-700">
         </div>
 
-        <button id="google-login-btn" class="w-full border border-gray-200 p-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-50 transition shadow-sm">
+        <button id="google-login-btn" class="w-full border border-gray-200 dark:border-slate-700 p-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-50 dark:hover:bg-slate-700 dark:text-white transition shadow-sm">
             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" width="20">
             Login with Google
         </button>
 
-        <p class="mt-8 text-center text-gray-500 text-sm">
+        <p class="mt-8 text-center text-gray-500 dark:text-gray-400 text-sm">
             New here? <a href="signup.html" class="text-orange-500 font-bold hover:underline">Create Account</a>
         </p>
     </div>
@@ -47,8 +66,16 @@
         document.getElementById('login-btn').addEventListener('click', () => {
             const email = document.getElementById('login-email').value;
             const pass = document.getElementById('login-pass').value;
-            if(email && pass) loginUser(email, pass);
-            else alert("Enter credentials");
+            if(email && pass) {
+                // Loading state (Optional UI touch)
+                const btn = document.getElementById('login-btn');
+                btn.innerText = "Authenticating...";
+                btn.disabled = true;
+                
+                loginUser(email, pass);
+            } else {
+                alert("Please enter both email and password.");
+            }
         });
 
         document.getElementById('google-login-btn').addEventListener('click', () => {

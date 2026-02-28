@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,37 +13,74 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
     <title>FoodiePro | Order Online</title>
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: background-color 0.3s ease; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
         /* Dark Glass Effect */
-        .dark .glass { background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(90deg, #f97316, #ea580c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #f97316, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
     </style>
 </head>
+
 <body class="bg-[#F8FAFC] dark:bg-slate-900 transition-colors duration-300">
 
     <nav class="sticky top-0 z-50 glass px-6 py-4 mx-4 mt-4 rounded-2xl flex justify-between items-center shadow-sm">
-        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">🍔 FOODIE<span class="text-orange-500">PRO</span></h1>
-        
+        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">🍔 FOODIE<span
+                class="text-orange-500">PRO</span></h1>
+
         <div class="flex items-center gap-4 md:gap-6">
-            <button id="theme-toggle" class="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition">
-                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
+            <button id="theme-toggle"
+                class="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z">
+                    </path>
+                </svg>
             </button>
 
-            <div class="relative bg-white dark:bg-slate-800 p-2 rounded-xl shadow-sm border dark:border-slate-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700 transition" id="cart-open">
-                <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-white dark:border-slate-800 font-bold" id="cart-count">0</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            <div class="relative bg-white dark:bg-slate-800 p-2 rounded-xl shadow-sm border dark:border-slate-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-slate-700 transition"
+                id="cart-open">
+                <span
+                    class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full border-2 border-white dark:border-slate-800 font-bold"
+                    id="cart-count">0</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-300" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
             </div>
 
             <div id="auth-section">
-                <a href="login.html" id="auth-btn" class="bg-gray-900 dark:bg-orange-500 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-orange-600 transition-all text-sm shadow-lg shadow-gray-200 dark:shadow-none">
+                <a href="login.html" id="auth-btn"
+                    class="bg-gray-900 dark:bg-orange-500 text-white px-6 py-2.5 rounded-xl font-semibold hover:bg-orange-600 transition-all text-sm shadow-lg shadow-gray-200 dark:shadow-none">
                     Login / Signup
                 </a>
             </div>
@@ -51,10 +89,12 @@
 
     <div id="cart-sidebar" class="fixed inset-0 z-[60] hidden">
         <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="cart-close-overlay"></div>
-        <div class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl p-8 flex flex-col">
+        <div
+            class="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl p-8 flex flex-col">
             <div class="flex justify-between items-center mb-8">
                 <h2 class="text-2xl font-bold dark:text-white">Your Basket 🧺</h2>
-                <button id="cart-close" class="text-gray-400 hover:text-black dark:hover:text-white text-3xl">&times;</button>
+                <button id="cart-close"
+                    class="text-gray-400 hover:text-black dark:hover:text-white text-3xl">&times;</button>
             </div>
             <div id="cart-items" class="flex-1 overflow-y-auto space-y-4"></div>
             <div class="border-t dark:border-slate-800 pt-6 mt-6">
@@ -62,7 +102,8 @@
                     <span>Total</span>
                     <span id="cart-total" class="text-orange-500">Rs. 0</span>
                 </div>
-                <button id="checkout-btn" class="w-full bg-orange-500 text-white py-4 rounded-2xl font-bold text-lg hover:bg-orange-600 transition-all">
+                <button id="checkout-btn"
+                    class="w-full bg-orange-500 text-white py-4 rounded-2xl font-bold text-lg hover:bg-orange-600 transition-all">
                     Confirm Order
                 </button>
             </div>
@@ -70,21 +111,54 @@
     </div>
 
     <section class="container mx-auto px-6 pt-16 text-center">
-        <span class="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Fastest Delivery in Town</span>
-        <h2 class="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mt-6 leading-tight tracking-tighter">Satisfy Your <br> <span class="gradient-text">Cravings Instantly</span></h2>
+        <span
+            class="bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">Fastest
+            Delivery in Town</span>
+        <h2
+            class="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mt-6 leading-tight tracking-tighter">
+            Satisfy Your <br> <span class="gradient-text">Cravings Instantly</span></h2>
     </section>
 
     <main class="container mx-auto px-6 py-20">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
                 <h3 class="text-3xl font-bold text-gray-900 dark:text-white">Explore Menu</h3>
                 <p class="text-gray-500 dark:text-gray-400 mt-1">Freshly prepared dishes delivered to your door</p>
+            </div>
+            <div id="category-filters" class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+                <button onclick="filterProducts('all')"
+                    class="cat-btn active-cat px-6 py-2 rounded-xl font-bold transition-all border dark:border-slate-700">
+                    All
+                </button>
             </div>
         </div>
 
         <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <p class="text-gray-400 animate-pulse">Loading delicious food...</p>
         </div>
+    </main>
+
+    <style>
+        /* Active Category Style */
+        .active-cat {
+            background-color: #f97316;
+            color: white;
+            border-color: #f97316;
+        }
+
+        .cat-btn:not(.active-cat) {
+            background-color: transparent;
+            color: #64748b;
+        }
+
+        .dark .cat-btn:not(.active-cat) {
+            color: #94a3b8;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
     </main>
 
     <script type="module" src="./js/store.js"></script>
@@ -99,7 +173,7 @@
             themeToggleDarkIcon.classList.remove('hidden');
         }
 
-        document.getElementById('theme-toggle').addEventListener('click', function() {
+        document.getElementById('theme-toggle').addEventListener('click', function () {
             themeToggleDarkIcon.classList.toggle('hidden');
             themeToggleLightIcon.classList.toggle('hidden');
 
@@ -123,4 +197,5 @@
         });
     </script>
 </body>
+
 </html>
