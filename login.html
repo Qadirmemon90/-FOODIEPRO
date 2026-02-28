@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Login | FoodiePro</title>
+    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+
+    <div class="bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl w-full max-w-md border border-gray-100 transition-all">
+        <div class="text-center mb-8">
+            <h2 class="text-4xl font-black text-gray-900 tracking-tight">Welcome <span class="text-orange-500">Back</span></h2>
+            <p class="text-gray-500 mt-2 font-medium">Login to your account</p>
+        </div>
+
+        <div class="space-y-4">
+            <input type="email" id="login-email" placeholder="Email Address" class="w-full p-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 transition">
+            <input type="password" id="login-pass" placeholder="Password" class="w-full p-4 bg-gray-50 border-none rounded-2xl outline-none focus:ring-2 focus:ring-orange-500 transition">
+            
+            <button id="login-btn" class="w-full bg-gray-900 text-white p-4 rounded-2xl font-bold hover:bg-orange-500 transition-all shadow-lg">
+                Login Securely
+            </button>
+        </div>
+
+        <div class="flex items-center my-6">
+            <hr class="flex-grow border-gray-200">
+            <span class="px-3 text-gray-400 text-xs font-bold uppercase">Or</span>
+            <hr class="flex-grow border-gray-200">
+        </div>
+
+        <button id="google-login-btn" class="w-full border border-gray-200 p-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-gray-50 transition shadow-sm">
+            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/action/google.svg" width="20">
+            Login with Google
+        </button>
+
+        <p class="mt-8 text-center text-gray-500 text-sm">
+            New here? <a href="signup.html" class="text-orange-500 font-bold hover:underline">Create Account</a>
+        </p>
+    </div>
+
+    <script type="module">
+        import { loginUser, signInWithGoogle } from './js/auth.js';
+        
+        document.getElementById('login-btn').addEventListener('click', () => {
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-pass').value;
+            if(email && pass) loginUser(email, pass);
+            else alert("Enter credentials");
+        });
+
+        document.getElementById('google-login-btn').addEventListener('click', () => {
+            signInWithGoogle();
+        });
+    </script>
+</body>
+</html>
