@@ -69,6 +69,7 @@ uploadBtn.addEventListener('click', async () => {
         await addDoc(collection(db, "products"), {
             name: name,
             price: Number(price),
+            category,
             image: imgUrl, // Yeh naam 'image' hi hona chahiye
             createdAt: serverTimestamp()
         });
